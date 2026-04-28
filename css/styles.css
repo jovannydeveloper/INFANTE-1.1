@@ -741,7 +741,7 @@ img { max-width: 100%; height: auto; }
   font-family: inherit; line-height: 1.5;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 841px) {
 
   .sticky-top{
     position: static;
