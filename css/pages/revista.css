@@ -1,0 +1,632 @@
+/* ══════════════════════════════════════════════
+   REVISTA DIGITAL — StPageFlip + INFANTE MX
+══════════════════════════════════════════════ */
+
+/* ── Página de la revista: fondo ── */
+.revista-wrapper {
+  background: #2a2230;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.revista-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(244,167,176,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 50%, rgba(126,203,186,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Contenedor del libro ── */
+.book-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Controles de navegación ── */
+.revista-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ctrl-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.ctrl-btn:hover {
+  background: rgba(244,167,176,0.3);
+  border-color: var(--rosa);
+  color: var(--white);
+  transform: scale(1.08);
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.page-counter {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  min-width: 80px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* ── Hint inicial ── */
+.flip-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: hintFade 3s ease-in-out forwards;
+  z-index: 2;
+}
+
+@keyframes hintFade {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ══════════════════════════════════════════════
+   ESTILOS INTERNOS DE LAS PÁGINAS
+   (van dentro del libro StPageFlip)
+══════════════════════════════════════════════ */
+
+/* Base de toda página */
+.page {
+  background: var(--white);
+  overflow: hidden;
+  position: relative;
+  font-family: var(--font-body);
+  color: var(--text);
+}
+
+/* ── PORTADA ── */
+.page-cover {
+  background: linear-gradient(155deg, #3a3236 0%, #2a1f2e 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(42,32,46,0.97) 0%,
+    rgba(42,32,46,0.5) 50%,
+    rgba(42,32,46,0.2) 100%
+  );
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cover-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: auto;
+}
+
+.cover-logo-img {
+  width: 40px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.cover-marca {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.9);
+}
+
+.cover-body {
+  margin-top: auto;
+}
+
+.cover-edicion {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rosa);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.cover-titulo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.cover-titulo em {
+  color: var(--rosa);
+  font-style: italic;
+}
+
+.cover-subtitulo {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.cover-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cover-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── CONTRAPORTADA ── */
+.page-back-cover {
+  background: linear-gradient(155deg, var(--coral) 0%, var(--rosa) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.back-cover-logo {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.back-cover-tagline {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.back-cover-divider {
+  width: 40px;
+  height: 2px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 2px;
+  margin: 0 auto 2rem;
+}
+
+.back-cover-cta {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.1em;
+}
+
+/* ── ÍNDICE ── */
+.page-indice {
+  padding: 2.5rem 2rem;
+  background: var(--cream);
+}
+
+.indice-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--rosa-soft);
+}
+
+.indice-vol {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coral);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.indice-titulo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.indice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(244,167,176,0.2);
+  cursor: pointer;
+  transition: background 0.15s;
+  border-radius: 8px;
+  padding-left: 0.5rem;
+}
+
+.indice-item:hover { background: var(--rosa-soft); padding-left: 0.8rem; }
+
+.indice-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--rosa-soft);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2rem;
+  margin-top: 0.1rem;
+}
+
+.indice-info { flex: 1; }
+
+.indice-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 0.15rem;
+  display: block;
+}
+
+.indice-nombre {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.indice-pagina {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-mid);
+  flex-shrink: 0;
+}
+
+/* ── PÁGINAS DE ARTÍCULO ── */
+
+/* Página de imagen (izquierda del spread) */
+.page-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.page-img-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.page-img-caption {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  right: 1.2rem;
+}
+
+.page-img-num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.page-img-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-coral  { background: var(--coral);       color: var(--white); }
+.tag-mint   { background: var(--mint-strong); color: var(--white); }
+.tag-yellow { background: var(--yellow);      color: var(--text); }
+.tag-rosa   { background: var(--rosa);        color: var(--white); }
+
+.page-img-titulo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.25;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* Página de texto (derecha del spread) */
+.page-texto {
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--white);
+}
+
+.page-texto--cream { background: var(--cream); }
+.page-texto--rosa  { background: var(--rosa-soft); }
+.page-texto--mint  { background: var(--mint-soft); }
+.page-texto--yellow{ background: var(--yellow-soft); }
+
+.art-header { margin-bottom: 1.2rem; }
+
+.art-vol {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.art-titulo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.art-titulo em { color: var(--coral); font-style: italic; }
+
+.art-autor {
+  font-size: 0.72rem;
+  color: var(--text-mid);
+  font-weight: 600;
+}
+
+.art-divider {
+  width: 32px;
+  height: 2px;
+  background: var(--rosa);
+  border-radius: 2px;
+  margin: 1rem 0;
+}
+
+.art-body { flex: 1; }
+
+.art-parrafo {
+  font-size: 0.78rem;
+  line-height: 1.75;
+  color: var(--text-mid);
+  margin-bottom: 0.8rem;
+}
+
+.art-lead {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+}
+
+.art-destacado {
+  background: var(--coral-soft);
+  border-left: 3px solid var(--coral);
+  border-radius: 0 8px 8px 0;
+  padding: 0.7rem 0.9rem;
+  margin: 1rem 0;
+}
+
+.art-destacado--mint   { background: var(--mint-soft);   border-color: var(--mint-strong); }
+.art-destacado--yellow { background: var(--yellow-soft); border-color: var(--yellow); }
+
+.art-destacado p {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--text);
+  font-weight: 600;
+  margin: 0;
+}
+
+.art-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0;
+}
+
+.art-lista li {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.3rem;
+}
+
+.art-lista li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--rosa);
+  font-size: 0.55rem;
+  top: 0.3rem;
+}
+
+.page-num {
+  font-size: 0.65rem;
+  color: var(--text-mid);
+  text-align: right;
+  margin-top: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ── PÁGINA DE CITA ── */
+.page-cita {
+  background: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.page-cita::before {
+  content: '"';
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 18rem;
+  color: rgba(255,255,255,0.04);
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cita-texto {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--white);
+  font-style: italic;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cita-texto em { color: var(--rosa); }
+
+.cita-autor {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── PÁGINA RECETA / TIPS ── */
+.page-tips {
+  padding: 2rem 1.8rem;
+  background: var(--mint-soft);
+}
+
+.tips-header {
+  margin-bottom: 1.5rem;
+}
+
+.tips-titulo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 0.3rem;
+}
+
+.tip-card {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 8px rgba(58,50,54,0.06);
+}
+
+.tip-icono {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.tip-info h4 {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.tip-info p {
+  font-size: 0.7rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Sombra del libro ── */
+.stf__parent {
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.3) !important;
+  border-radius: 4px;
+}

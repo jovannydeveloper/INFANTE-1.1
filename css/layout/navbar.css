@@ -1,0 +1,110 @@
+/* ══════════════════════════════════
+   NAVBAR
+══════════════════════════════════ */
+.nav-wrapper {
+  background: transparent;
+  z-index: 1000;
+  padding: 0.75rem 0;
+}
+
+.infante-nav {
+  background: var(--white);
+  box-shadow: 0 4px 24px rgba(244,167,176,0.25);
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem !important;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu{
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-menu .producto-titulo{
+  margin-bottom: 0;
+}
+
+.brand-logo{
+  width: 70px;
+  height: auto;
+  /* object-fit: contain; */
+}
+
+.infante-brand {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  /* color: var(--coral) !important; */
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.infante-brand span:nth-child(1) {
+  color: var(--rosa);
+}
+
+.infante-brand span:nth-child(2) {
+  color: var(--rosa);
+}
+
+.infante-brand span:nth-child(3) {
+  color: var(--rosa);
+}
+
+.infante-brand span:nth-child(4) {
+  color: var(--yellow);
+}
+
+.infante-brand span:nth-child(5) {
+  color: var(--mint-strong);
+}
+
+.infante-brand span:nth-child(6) {
+  color: var(--mint-strong);
+}
+
+.infante-brand span:nth-child(7) {
+  color: var(--mint-strong);
+}
+
+.infante-brand span:nth-child(8) {
+  color: var(--rosa);
+}
+
+/* .brand-dot {
+  color: var(--rosa);
+  margin-right: 4px;
+} */
+
+.btn-suscribir {
+  background: var(--coral);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  padding: 0.55rem 1.4rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-suscribir:hover {
+  background: #e05a5a;
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.active-link{
+  border-bottom: 2px solid var(--coral);
+}

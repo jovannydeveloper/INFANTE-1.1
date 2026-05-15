@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════════
+   INFANTE MX — Estilos principales
+   Paleta: Rosa suave · Mint · Amarillo · Coral
+   Tipografía: Playfair Display + Nunito
+═══════════════════════════════════════════════════ */
+
+/* ── Variables ── */
+:root {
+  --rosa:     #f4a7b0;
+  --rosa-strong:     #ee3a73;
+  --rosa-soft:#fde8ea;
+  --azul-soft:#31cee6;
+  --azul-light:#93e3ef;
+  --mint-strong:     #25caa7;
+  --mint:     #7ecbba;
+  --mint-light:     #aceddf;
+  --mint-soft:#e0f5f0;
+  --yellow:   #f5c842;
+  --yellow-soft: #fef7d6;
+  --coral:    #f07070;
+  --coral-soft:#fde8e8;
+  --cream:    #fdf8f5;
+  --text:     #3a3236;
+  --text-mid: #7a6b72;
+  --white:    #ffffff;
+
+  /* Tipografías */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Nunito', 'Helvetica Neue', Arial, sans-serif;
+}

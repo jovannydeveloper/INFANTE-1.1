@@ -1,0 +1,49 @@
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+.infante-footer {
+  background: var(--text);
+  padding: 2.8rem 0;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--rosa);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.footer-tagline {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  font-style: italic;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--rosa); }
+.footer-links li { color: rgba(255,255,255,0.4); }
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  margin: 0.4rem 0 0;
+}
+
+.footer-social a {
+  color: rgba(255,255,255,0.5);
+  font-size: 1.25rem;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.footer-social a:hover {
+  color: var(--rosa);
+  transform: translateY(-2px);
+}
+.footer-social .list-inline-item { margin: 0 0.4rem; }
