@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Infante MX — Revista Digital Edición 1, por Karen Herberth" />
+  <meta name="theme-color" content="#1a1a2e" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Infante MX — Revista Digital" />
+  <meta property="og:description" content="Revista digital interactiva sobre México Infante" />
+  <meta property="og:type" content="website" />
+
+  <title>Infante MX — Revista Digital</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/pages/magazine.css" />
+
+  <!-- StPageFlip CDN (browser bundle) -->
+  <script src="https://unpkg.com/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       Loading Screen
+  ══════════════════════════════════════════ -->
+  <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+    <div class="loading-screen__logo">INFANTE</div>
+    <div class="loading-screen__subtitle">Revista Digital · Cargando…</div>
+    <div class="loading-screen__bar-track">
+      <div id="loading-bar" class="loading-screen__bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       Main App
+  ══════════════════════════════════════════ -->
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header" role="banner">
+      <div class="header__brand">
+        <a href="index.html" style="text-decoration: none;">
+          <span class="header__title">Infante</span>
+        </a>
+        <span class="header__edition">Revista Digital · Edición 1</span>
+      </div>
+
+      <nav class="header__controls" aria-label="Herramientas de revista">
+        <!-- Thumbnail toggle -->
+        <button id="btn-thumbs" class="icon-btn" aria-label="Ver miniaturas de páginas" title="Miniaturas">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 0h7v7h-7z"/>
+          </svg>
+        </button>
+
+        <!-- First page -->
+        <button id="btn-first" class="icon-btn" aria-label="Ir a portada" title="Primera página">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+          </svg>
+        </button>
+
+        <!-- Last page -->
+        <button id="btn-last" class="icon-btn" aria-label="Ir a contraportada" title="Última página">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 6h-2v12h2zm-3.5 6L6 6v12z"/>
+          </svg>
+        </button>
+
+        <!-- Fullscreen -->
+        <button id="btn-fullscreen" class="icon-btn" aria-label="Pantalla completa" title="Pantalla completa">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Stage (book area) -->
+    <main class="stage" role="main" aria-label="Visor de revista">
+      <div class="stage__book-wrapper">
+        <!-- StPageFlip mounts here -->
+        <div id="book"></div>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="nav-controls" aria-label="Navegación de páginas">
+      <button id="btn-prev" class="nav-btn" aria-label="Página anterior" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+        <span>Anterior</span>
+      </button>
+
+      <span class="nav-counter" aria-live="polite" aria-atomic="true">
+        Pág. <strong id="counter-current" class="nav-counter__current">1</strong>
+        &nbsp;de&nbsp;
+        <span id="counter-total">46</span>
+      </span>
+
+      <button id="btn-next" class="nav-btn" aria-label="Página siguiente">
+        <span>Siguiente</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </button>
+    </nav>
+
+  </div><!-- /.app -->
+
+  <!-- ══════════════════════════════════════════
+       Thumbnail Drawer
+  ══════════════════════════════════════════ -->
+  <aside id="thumb-drawer" class="thumbnail-drawer" aria-label="Panel de miniaturas" aria-hidden="true">
+    <div class="thumbnail-drawer__header">
+      <span>Páginas</span>
+      <button id="btn-close-drawer" class="icon-btn" aria-label="Cerrar panel de miniaturas">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+    </div>
+    <div id="thumb-strip" class="thumbnail-drawer__strip" role="list" aria-label="Miniaturas de páginas"></div>
+  </aside>
+
+  <!-- Overlay (closes drawer on click outside) -->
+  <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+  <!-- App logic -->
+  <script src="js/magazine.js"></script>
+
+</body>
+</html>

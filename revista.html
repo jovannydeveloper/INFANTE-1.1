@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFANTE MX - Programa</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body >
+    <!-- NAVBAR -->
+    <div class="nav-wrapper sticky-top">
+      <nav class="navbar infante-nav">
+          <a class="navbar-brand infante-brand" href="index.html">
+            <img src="assets/icon/logotipo-infante.png" alt="Logo INFANTE" class="brand-logo" />
+            <span>I</span>
+            <span>N</span>
+            <span>F</span>
+            <span>A</span>
+            <span>N</span>
+            <span>T</span>
+            <span>E</span>
+          </a>
+          <div class="nav-menu">
+            <a href="revista.html"class="producto-titulo active-link">Revista</a>
+            <a href="programa.html"class="producto-titulo">Programa</a>
+            <!-- <a href="#signup"class="producto-titulo">Curso</a> -->
+            <a class="btn btn-suscribir" href="#signup">Suscribirse</a>
+          </div>
+      </nav>
+    </div>
+
+    <!-- ══ REVISTA DIGITAL ══ -->
+    <div class="revista-wrapper">
+
+      <!-- Contenedor del libro (StPageFlip lo toma aquí) -->
+      <div class="book-container">
+        <div id="book">
+
+          <!-- ══ PÁGINA 0: PORTADA (hard) ══ -->
+          <div class="page page-cover" data-density="hard">
+            <img class="cover-img" src="assets/img/revista/portada.jpeg" alt="Portada" />
+            <div class="cover-overlay"></div>
+            <div class="cover-content">
+              <div class="cover-logo">
+                <img class="cover-logo-img" src="assets/icon/logotipo-infante.png" alt="INFANTE" />
+                <span class="cover-marca">INFANTE</span>
+              </div>
+              <div class="cover-body">
+                <span class="cover-edicion">Edición 01 · Mayo – Junio 2026</span>
+                <h1 class="cover-titulo">Crianza con<br><em>ciencia y amor</em></h1>
+                <p class="cover-subtitulo">
+                  Tu guía mensual de desarrollo infantil, nutrición y bienestar familiar. Fundada por Karen Herberth, Psicóloga Educativa.
+                </p>
+                <div class="cover-tags">
+                  <span class="cover-tag">Salud</span>
+                  <span class="cover-tag">Bienestar</span>
+                  <span class="cover-tag">Emociones</span>
+                  <span class="cover-tag">Convivencia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ PÁGINA 1: ÍNDICE ══ -->
+          <!-- <div class="page page-indice" data-density="hard">
+            <div class="indice-header">
+              <span class="indice-vol">Edición 01 · Mayo 2026</span>
+              <h2 class="indice-titulo">En este<br>número</h2>
+            </div>
+            <div class="indice-item" onclick="flipTo(2)">
+              <span class="indice-num">01</span>
+              <div class="indice-info">
+                <span class="indice-tag">Desarrollo</span>
+                <span class="indice-nombre">El juego libre: la herramienta más poderosa del desarrollo</span>
+              </div>
+              <span class="indice-pagina">p. 2</span>
+            </div>
+            <div class="indice-item" onclick="flipTo(4)">
+              <span class="indice-num">02</span>
+              <div class="indice-info">
+                <span class="indice-tag">Nutrición</span>
+                <span class="indice-nombre">Azúcar en el desayuno: lo que nadie te cuenta</span>
+              </div>
+              <span class="indice-pagina">p. 4</span>
+            </div>
+            <div class="indice-item" onclick="flipTo(6)">
+              <span class="indice-num">03</span>
+              <div class="indice-info">
+                <span class="indice-tag">Emociones</span>
+                <span class="indice-nombre">Cómo hablar de emociones con niños de 2 a 5 años</span>
+              </div>
+              <span class="indice-pagina">p. 6</span>
+            </div>
+            <div class="indice-item" onclick="flipTo(8)">
+              <span class="indice-num">04</span>
+              <div class="indice-info">
+                <span class="indice-tag">Crianza</span>
+                <span class="indice-nombre">Límites con amor: el equilibrio que todos buscamos</span>
+              </div>
+              <span class="indice-pagina">p. 8</span>
+            </div>
+            <div class="indice-item" onclick="flipTo(10)">
+              <span class="indice-num">05</span>
+              <div class="indice-info">
+                <span class="indice-tag">Tips</span>
+                <span class="indice-nombre">3 rutinas nocturnas que realmente funcionan</span>
+              </div>
+              <span class="indice-pagina">p. 10</span>
+            </div>
+          </div> -->
+
+          <!-- ══ PÁGINAS 2-3: ARTÍCULO 1 ══ -->
+          <div class="page page-img">
+            <img src="assets/img/revista/revista1.jpeg" alt="Juego libre" />
+            <div class="page-img-overlay" style="background: linear-gradient(to top, rgba(58,50,54,0.88) 0%, rgba(58,50,54,0.1) 60%)"></div>
+            <div class="page-img-caption">
+              <div class="page-img-num">01</div>
+              <!-- <span class="page-img-tag tag-coral">Desarrollo infantil</span> -->
+              <h2 class="page-img-titulo">Estereotipos sobre el envejecimiento</h2>
+            </div>
+          </div>
+
+          <!-- <div class="page page-texto">
+            <div class="art-header">
+              <span class="art-vol">Artículo 01 · Desarrollo infantil</span>
+              <h2 class="art-titulo">El juego libre: <em>la herramienta más poderosa</em></h2>
+              <span class="art-autor">Por Karen Herberth · Psicóloga Educativa</span>
+            </div>
+            <div class="art-divider"></div>
+            <div class="art-body">
+              <p class="art-lead">Cuando un niño juega sin instrucciones y sin un adulto dirigiendo, sucede algo extraordinario: su cerebro trabaja a máxima capacidad.</p>
+              <p class="art-parrafo">El juego libre es toda actividad que el propio niño elige, dirige y controla. No hay un objetivo fijo ni una manera correcta de hacerlo. Lo que parece "tiempo sin hacer nada" es en realidad el trabajo más serio de la infancia.</p>
+              <p class="art-parrafo">En esos momentos el niño practica toma de decisiones, resolución de problemas, regulación emocional y pensamiento creativo — todo al mismo tiempo, sin esfuerzo consciente.</p>
+              <div class="art-destacado">
+                <p>📌 La OMS incluye el juego libre como indicador clave de bienestar infantil en sus guías de actividad física para la primera infancia.</p>
+              </div>
+              <p class="art-parrafo">Durante el juego libre se activa la corteza prefrontal — región responsable de la planificación y el control de impulsos. Esto no sucede igual cuando el niño sigue instrucciones de un adulto.</p>
+            </div>
+            <div class="page-num">2</div>
+          </div> -->
+
+          <!-- ══ PÁGINAS 4-5: ARTÍCULO 2 ══ -->
+          <div class="page page-img">
+            <img src="assets/img/revista/revista2.jpeg" alt="Azúcar" />
+            <div class="page-img-overlay" ></div>
+            <div class="page-img-caption">
+              <div class="page-img-num">02</div>
+              <!-- <span class="page-img-tag tag-mint">Nutrición</span> -->
+              <h2 class="page-img-titulo">Genética</h2>
+            </div>
+          </div>
+
+          <!-- <div class="page page-texto page-texto--mint">
+            <div class="art-header">
+              <span class="art-vol">Artículo 02 · Nutrición infantil</span>
+              <h2 class="art-titulo" style="color:var(--mint-strong)">Azúcar en el desayuno</h2>
+              <span class="art-autor">Por Karen Herberth · Psicóloga Educativa</span>
+            </div>
+            <div class="art-divider" style="background: var(--mint-strong)"></div>
+            <div class="art-body">
+              <p class="art-lead">Analizamos los desayunos más comunes en hogares mexicanos y su impacto real en la concentración de los niños.</p>
+              <p class="art-parrafo">El 72% de los cereales infantiles en México supera el límite recomendado de azúcar por porción. Muchos padres los eligen precisamente por la energía que prometen, sin saber que esa energía dura apenas 45 minutos.</p>
+              <div class="art-destacado art-destacado--mint">
+                <p>🧠 El azúcar en exceso al despertar genera un pico de glucosa seguido de una caída brusca — lo que provoca irritabilidad y dificultad para concentrarse en clase.</p>
+              </div>
+              <p class="art-parrafo">La solución no es eliminar todo lo dulce, sino entender el índice glucémico de los alimentos y priorizar proteínas y fibras al iniciar el día.</p>
+              <ul class="art-lista">
+                <li>Avena natural con fruta fresca</li>
+                <li>Huevo en cualquier presentación</li>
+                <li>Yogur natural sin azúcar añadida</li>
+                <li>Pan integral con aguacate</li>
+              </ul>
+            </div>
+            <div class="page-num">4</div>
+          </div> -->
+
+          <!-- ══ PÁGINAS 6-7: ARTÍCULO 3 ══ -->
+          <div class="page page-img">
+            <img src="assets/img/revista/revista3.jpeg" alt="Azúcar" />
+            <div class="page-img-overlay" ></div>
+            <div class="page-img-caption">
+              <div class="page-img-num">03</div>
+              <!-- <span class="page-img-tag tag-mint">Nutrición</span> -->
+              <h2 class="page-img-titulo">Cambios físicos</h2>
+            </div>
+          </div> 
+
+
+          <!-- <div class="page page-texto page-texto--rosa">
+            <div class="art-header">
+              <span class="art-vol">Artículo 03 · Inteligencia emocional</span>
+              <h2 class="art-titulo">Cómo hablar de emociones<br>con niños de 2 a 5 años</h2>
+              <span class="art-autor">Por Karen Herberth · Psicóloga Educativa</span>
+            </div>
+            <div class="art-divider" style="background: var(--rosa-strong)"></div>
+            <div class="art-body">
+              <p class="art-lead">El vocabulario emocional se construye desde muy temprano. Te damos estrategias concretas para empezar hoy.</p>
+              <p class="art-parrafo">Los niños de 2 a 5 años sienten emociones intensas pero carecen de las palabras para describirlas. Cuando un adulto nombra lo que el niño siente, le da una herramienta que usará toda su vida.</p>
+              <div class="art-destacado" style="background:var(--rosa-soft); border-color:var(--coral)">
+                <p>💬 En lugar de "no llores", prueba: "Veo que estás muy enojado porque tuviste que parar de jugar. Tiene sentido sentirse así."</p>
+              </div>
+              <p class="art-parrafo">No se trata de resolver la emoción ni de calmar al niño a cualquier costo. Se trata de acompañarlo en ella hasta que pase.</p>
+              <p class="art-parrafo">Los estudios de John Gottman muestran que los niños cuyos padres practican el coaching emocional tienen mejor rendimiento académico y menos problemas de conducta.</p>
+            </div>
+            <div class="page-num">6</div>
+          </div> -->
+
+          <!-- ══ PÁGINAS 8-9: ARTÍCULO 4 ══ -->
+          <div class="page page-img">
+            <img src="assets/img/revista/revista4.jpeg" alt="Límites" />
+            <div class="page-img-overlay" ></div>
+            <div class="page-img-caption">
+              <div class="page-img-num">04</div>
+              <!-- <span class="page-img-tag tag-rosa">Crianza consciente</span> -->
+              <h2 class="page-img-titulo">Enfermedades crónicas</h2>
+            </div>
+          </div>
+
+          <!-- <div class="page page-texto page-texto--yellow">
+            <div class="art-header">
+              <span class="art-vol">Artículo 04 · Crianza consciente</span>
+              <h2 class="art-titulo" style="color:var(--text)">Límites con amor</h2>
+              <span class="art-autor">Por Karen Herberth · Psicóloga Educativa</span>
+            </div>
+            <div class="art-divider" style="background: var(--yellow)"></div>
+            <div class="art-body">
+              <p class="art-lead">Los límites no son castigos ni control. Son la estructura que los niños necesitan para sentirse seguros.</p>
+              <p class="art-parrafo">Un límite bien puesto no se impone con gritos ni amenazas — se sostiene con calma, consistencia y conexión emocional. El niño necesita saber que el límite no cambia aunque él proteste.</p>
+              <div class="art-destacado art-destacado--yellow">
+                <p>⚡ Los niños sin límites claros no se sienten más libres — se sienten más ansiosos. La estructura predecible es, paradójicamente, lo que les da seguridad.</p>
+              </div>
+              <ul class="art-lista">
+                <li>Explica el porqué con palabras simples</li>
+                <li>Sé consistente: el límite aplica siempre</li>
+                <li>Valida la emoción, no la conducta</li>
+                <li>Ofrece una alternativa cuando sea posible</li>
+              </ul>
+            </div>
+            <div class="page-num">8</div>
+          </div> -->
+
+          <!-- ══ PÁGINAS 10-11: TIPS ══ -->
+          <!-- <div class="page page-tips">
+            <div class="tips-header">
+              <span class="art-vol" style="color:var(--mint-strong)">Artículo 05 · Sueño infantil</span>
+              <h2 class="tips-titulo">3 rutinas nocturnas que realmente funcionan</h2>
+            </div>
+            <div class="tip-card">
+              <span class="tip-icono">🌙</span>
+              <div class="tip-info">
+                <h4>Apaga las pantallas 60 min antes</h4>
+                <p>La luz azul suprime la melatonina. Reemplázalas con música suave, cuentos o dibujo libre. El cerebro del niño necesita esa transición.</p>
+              </div>
+            </div>
+            <div class="tip-card">
+              <span class="tip-icono">🛁</span>
+              <div class="tip-info">
+                <h4>Baño tibio como ritual de cierre</h4>
+                <p>El descenso de temperatura corporal después del baño activa señales de sueño. Hazlo a la misma hora todos los días para que el cerebro lo reconozca.</p>
+              </div>
+            </div>
+            <div class="tip-card">
+              <span class="tip-icono">📖</span>
+              <div class="tip-info">
+                <h4>Un cuento y "¿qué fue bueno hoy?"</h4>
+                <p>Esta pregunta simple activa el procesamiento positivo antes de dormir y fortalece el vínculo. Los niños que terminan el día con gratitud duermen mejor.</p>
+              </div>
+            </div>
+            <div class="page-num">10</div>
+          </div> -->
+
+          <!-- <div class="page page-img">
+            <img src="assets/img/bg-masthead.jpg" alt="Sueño infantil" />
+            <div class="page-img-overlay" style="background: linear-gradient(to top, rgba(37,202,167,0.85) 0%, rgba(37,202,167,0.15) 65%)"></div>
+            <div class="page-img-caption">
+              <span class="page-img-tag tag-mint">Sueño infantil</span>
+              <h2 class="page-img-titulo" style="margin-top:0.5rem">Rutinas nocturnas<br>que realmente<br>funcionan</h2>
+            </div>
+          </div> -->
+          <div class="page page-img">
+            <img src="assets/img/revista/revista5.jpeg" alt="Límites" />
+            <div class="page-img-overlay" ></div>
+            <div class="page-img-caption">
+              <div class="page-img-num">05</div>
+              <!-- <span class="page-img-tag tag-rosa">Crianza consciente</span> -->
+              <h2 class="page-img-titulo">Salud y longevidad</h2>
+            </div>
+          </div>
+
+          <!-- ══ CONTRAPORTADA (hard) ══ -->
+          <div class="page page-back-cover" data-density="hard">
+            <div class="back-cover-divider" style="margin-top:0; margin-bottom:1.5rem; width:30px"></div>
+            <!-- <img class="cover-logo-img" src="assets/icon/logotipo-infante.png" alt="INFANTE" /> -->
+            <p class="back-cover-logo">INFANTE</p>
+            <p class="back-cover-tagline">Crianza con ciencia y amor</p>
+            <div class="back-cover-divider"></div>
+            <p class="back-cover-cta">
+              Suscríbete en<br>
+              <strong style="color:var(--white); letter-spacing:0.05em">infantemx.com</strong>
+            </p>
+            <p style="font-size:0.65rem; color:rgba(255,255,255,0.3); margin-top:2rem;">
+              &copy; INFANTE MX 2026 · Todos los derechos reservados
+            </p>
+          </div>
+
+        </div><!-- #book -->
+      </div><!-- .book-container -->
+
+      <!-- Controles -->
+      <div class="revista-controls">
+        <button class="ctrl-btn" id="btn-prev" title="Página anterior">
+          <i class="bi-chevron-left"></i>
+        </button>
+        <span class="page-counter" id="page-counter">1 / 13</span>
+        <button class="ctrl-btn" id="btn-next" title="Página siguiente">
+          <i class="bi-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Hint -->
+      <div class="flip-hint">
+        <i class="bi-hand-index"></i>
+        <span>Arrastra las esquinas para pasar la página</span>
+      </div>
+
+    </div><!-- .revista-wrapper -->
+
+
+
+      <!-- CTA -->
+      <section class="cta-section" id="signup">
+        <div class="cta-bg-shapes">
+          <div class="cta-shape cta-shape-1"></div>
+          <div class="cta-shape cta-shape-2"></div>
+        </div>
+        <div class="container position-relative">
+          <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-9 text-center">
+              <span class="section-tag section-tag--white">¡Únete!</span>
+              <h2 class="cta-title">Empieza hoy tu viaje<br>hacia una crianza consciente</h2>
+              <p class="cta-subtitle">Recibe contenido exclusivo, acceso a la revista y descuentos en programas directamente en tu correo.</p>
+              <div class="cta-form-wrap">
+                <div class="row g-2 justify-content-center">
+                  <div class="col-sm-8">
+                    <input class="form-control cta-input" type="email" placeholder="tu@correo.com" />
+                  </div>
+                  <div class="col-sm-4">
+                    <button class="btn btn-cta-submit w-100">Suscribirme</button>
+                  </div>
+                </div>
+                <p class="cta-disclaimer">Sin spam. Puedes darte de baja cuando quieras. 🌸</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- FOOTER -->
+    <footer class="infante-footer">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
+            <span class="footer-brand">INFANTE</span>
+            <p class="footer-tagline">Crianza con ciencia y amor</p>
+          </div>
+          <div class="col-lg-4 text-center mb-3 mb-lg-0">
+            <div class="footer-links">
+              <a href="acercaDe.html">Acerca de</a>
+              <a href="terminosCondiciones.html">Términos y Condiciones</a>
+              <a href="privacidad.html">Política de Privacidad</a>
+            </div>
+            <p class="footer-copy">&copy; INFANTE MX 2026. Todos los derechos reservados.</p>
+          </div>
+          <div class="col-lg-4 text-center text-lg-end">
+            <ul class="list-inline footer-social mb-0">
+              <li class="list-inline-item"><a href="https://www.facebook.com/infantemexico" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.instagram.com/infantemexico" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.youtube.com/@Infantemexico" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi-youtube"></i></a></li>
+              <!-- <li class="list-inline-item"><a href="#!" aria-label="TikTok"><i class="bi-tiktok"></i></a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+    <script src="js/revista.js"></script>
+</body>
+</html>

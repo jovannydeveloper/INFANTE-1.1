@@ -1,0 +1,129 @@
+/* ══════════════════════════════════
+   PRODUCTOS
+══════════════════════════════════ */
+.productos-section {
+  padding: 5rem 0 2rem;
+  background: var(--cream);
+}
+
+.producto-row {
+  margin-bottom: 4rem;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(58,50,54,0.08);
+}
+
+/* Imagen */
+.producto-img-wrap {
+  position: relative;
+  min-height: 600px
+}
+
+/* .producto-img-wrap--mint  { background: var(--mint-soft); }
+.producto-img-wrap--coral { background: var(--coral-soft); } */
+
+.producto-img-inner {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
+}
+
+.producto-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  z-index: 2;
+}
+
+.producto-badge--mint  { background: var(--mint);   color: var(--white); }
+.producto-badge--coral { background: var(--coral);  color: var(--white); }
+
+/* Texto */
+.producto-text-col {
+  background: var(--white);
+}
+.producto-text {
+  padding: 3rem 3.5rem;
+}
+
+.producto-numero {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--rosa-soft);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.producto-titulo {
+  font-size: 1.7rem;
+  color: var(--rosa);
+  margin-bottom: 1rem;
+}
+
+
+.producto-desc {
+  color: var(--text-mid);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.producto-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+.producto-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.feature-icon {
+  color: var(--rosa);
+  font-size: 0.7rem;
+}
+
+.btn-producto {
+  border-radius: 50px;
+  padding: 0.7rem 1.8rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.btn-producto--mint {
+  background: var(--mint);
+  color: var(--white);
+}
+.btn-producto--mint:hover {
+  background: #5fb5a2;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(126,203,186,0.4);
+}
+
+.btn-producto--coral {
+  background: var(--coral);
+  color: var(--white);
+}
+.btn-producto--coral:hover {
+  background: #e05a5a;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(240,112,112,0.4);
+}
+
