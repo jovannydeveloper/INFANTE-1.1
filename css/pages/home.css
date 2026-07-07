@@ -191,6 +191,12 @@
   min-height: 400px;
 }
 
+.producto-img{
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
 .producto-img-wrap--mint  { background: var(--mint-soft); }
 .producto-img-wrap--coral { background: var(--coral-soft); }
 
