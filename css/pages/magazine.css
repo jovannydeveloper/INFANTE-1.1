@@ -19,8 +19,8 @@
   --color-text-muted: #a0a8c0;
   --color-shadow:     rgba(0, 0, 0, 0.6);
 
-  --page-width:       400px;
-  --page-height:      566px;
+  ---page-width:min(400px,90vw);
+  --page-height:calc(var(--page-width) * 1.414);
 
   --ui-radius:        12px;
   --ui-btn-size:      48px;
@@ -178,13 +178,17 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 16px;
+  padding: 12px;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .stage__book-wrapper {
   position: relative;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 /* StPageFlip container */
@@ -364,7 +368,7 @@ html, body {
 }
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   :root {
     --page-width: 320px;
     --page-height: 453px;
@@ -383,6 +387,22 @@ html, body {
 
   .header { padding: 10px 14px; }
   .stage { padding: 16px 8px; }
+} */
+
+@media (max-width:768px){
+
+    .header{
+        padding:12px;
+    }
+
+    .stage{
+        padding:10px;
+    }
+
+    .nav-btn span{
+        display:none;
+    }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

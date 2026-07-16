@@ -240,6 +240,39 @@ const UIController = (() => {
    ============================================================ */
 const FlipEngine = (() => {
   let pageFlip = null;
+  let isMobile = window.innerWidth <= 768;
+
+  function getPageFlipConfig() {
+    const mobile = window.innerWidth <= 768;
+
+    return {
+      width: mobile ? 280 : 400,
+      height: mobile ? 396 : 566,
+
+      size: "stretch",
+
+      minWidth: 220,
+      maxWidth: 400,
+
+      minHeight: 311,
+      maxHeight: 566,
+
+      drawShadow: Config.DRAW_SHADOW,
+      flippingTime: Config.FLIP_DURATION,
+      showCover: Config.SHOW_COVER,
+      usePortrait: true,
+      mobileScrollSupport: true,
+      maxShadowOpacity: 0.5,
+      startZIndex: 1
+    };
+  }
+
+  function destroy() {
+    if (pageFlip) {
+        pageFlip.destroy();
+        pageFlip = null;
+    }
+  }
 
   /**
    * Initialise StPageFlip on the #book element.
@@ -251,18 +284,7 @@ const FlipEngine = (() => {
       return;
     }
 
-    pageFlip = new St.PageFlip(document.getElementById('book'), {
-      width:             Config.PAGE_WIDTH,
-      height:            Config.PAGE_HEIGHT,
-      size:              'fixed',
-      drawShadow:        Config.DRAW_SHADOW,
-      flippingTime:      Config.FLIP_DURATION,
-      showCover:         Config.SHOW_COVER,
-      usePortrait:       Config.USE_PORTRAIT,
-      mobileScrollSupport: Config.MOBILE_SCROLL,
-      maxShadowOpacity:  0.5,
-      startZIndex:       1,
-    });
+    pageFlip = new St.PageFlip(document.getElementById('book'),getPageFlipConfig());
 
     // Load pages from HTML
     pageFlip.loadFromHTML(document.querySelectorAll('#book .page'));
@@ -290,7 +312,7 @@ const FlipEngine = (() => {
     return pageFlip?.getCurrentPageIndex() ?? 0;
   }
 
-  return { init, flipNext, flipPrev, flipFirst, flipLast, flipTo, getCurrentPage };
+  return { init, destroy, flipNext, flipPrev, flipFirst, flipLast, flipTo, getCurrentPage };
 })();
 
 /* ============================================================
@@ -344,6 +366,31 @@ const App = (() => {
 
   function bindEvents() {
     const { dom } = UIController;
+    window.addEventListener("resize", () => {
+
+    const mobile = window.innerWidth <= 768;
+
+    if (mobile === isMobile)
+        return;
+
+    isMobile = mobile;
+
+    const current = FlipEngine.getCurrentPage();
+
+    FlipEngine.destroy();
+
+    document.getElementById("book").innerHTML = "";
+
+    UIController.renderPageElements();
+
+    FlipEngine.init(handleFlip);
+
+    FlipEngine.flipTo(current);
+
+    UIController.updateState(current);
+
+    });
+
 
     dom.btnNext.addEventListener('click', () => FlipEngine.flipNext());
     dom.btnPrev.addEventListener('click', () => FlipEngine.flipPrev());
