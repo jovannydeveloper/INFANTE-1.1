@@ -181,6 +181,8 @@ html, body {
   padding: 12px;
   position: relative;
   overflow: auto;
+
+  width: 100%;
 }
 
 .stage__book-wrapper {
@@ -189,6 +191,7 @@ html, body {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /* StPageFlip container */
